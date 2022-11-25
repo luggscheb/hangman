@@ -9,7 +9,7 @@
   <p v-if="gameStart && cheat">{{currentWord}}</p>
   <p v-if="gameStart">{{anzeigeString}}</p>
   <br>
-  <img :src="require('./assets/img/'+fehler+'.jpg')" :alt="fehler">
+  <img :src="require('./img/' +fehler+'.jpg')" :alt="fehler">
 
   <table style="width:50%; margin:auto">
   <tr>
@@ -36,6 +36,7 @@ export default {
   },
   data:() => {
     return{
+    home: window.location.href,
     words: WordData,
     storage: [],
     cheat: false,
@@ -120,6 +121,7 @@ export default {
     },
   },
   mounted() {
+        
          window.addEventListener('keyup', event => {
             if (event.keyCode === 67) { 
             this.cheat = !this.cheat
